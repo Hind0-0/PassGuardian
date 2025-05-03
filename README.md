@@ -26,3 +26,4 @@ cd PassGuardian/
 
 # Install the required dependencies
 pip3 install -r requirements.txt
+pyhon3 app.py

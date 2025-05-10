@@ -17,8 +17,6 @@
 
 Follow these steps to install and run PassGuardian on your system:
 
----
-Express your opinion: file:///C:/Users/Hindz/Downloads/rating_page.html
 
 ---
 Completed in: 10-5-2025

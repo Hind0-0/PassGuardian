@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rate Your Experience</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #d9a7c7, purple, #8e2de2, #4a00e0);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      text-align: center;
+      padding: 40px;
+      color: white;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h2 {
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .hearts {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      direction: ltr;
+    }
+
+    .heart {
+      font-size: 40px;
+      cursor: pointer;
+      color: gray;
+      transition: color 0.3s;
+    }
+
+    .heart.selected {
+      color: #ffccff;
+    }
+
+    .rating-value {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #800080;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #a020f0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Rate Your Experience</h2>
+
+  <div class="hearts" id="heartContainer">
+    <span class="heart" data-value="1">&#10084;</span>
+    <span class="heart" data-value="2">&#10084;</span>
+    <span class="heart" data-value="3">&#10084;</span>
+    <span class="heart" data-value="4">&#10084;</span>
+    <span class="heart" data-value="5">&#10084;</span>
+  </div>
+
+  <div class="rating-value" id="ratingText">Select your rating</div>
+
+  <button id="submitBtn">Send Rating</button>
+
+  <script>
+    const hearts = document.querySelectorAll('.heart');
+    const ratingText = document.getElementById('ratingText');
+    const submitBtn = document.getElementById('submitBtn');
+
+    let selectedRating = 0;
+
+    hearts.forEach((heart, index) => {
+      heart.addEventListener('click', () => {
+        selectedRating = parseInt(heart.getAttribute('data-value'));
+        hearts.forEach(h => h.classList.remove('selected'));
+        for (let i = 0; i < selectedRating; i++) {
+          hearts[i].classList.add('selected');
+        }
+        ratingText.textContent = `You rated this ${selectedRating} out of 5 ❤️`;
+      });
+    });
+
+    submitBtn.addEventListener('click', () => {
+      if (selectedRating === 0) {
+        alert("Please select a rating before submitting.");
+        return;
+      }
+      alert(`Thank you! Your rating of ${selectedRating} has been submitted.`);
+      setTimeout(() => {
+        window.history.back();
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>

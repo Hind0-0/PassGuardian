@@ -17,7 +17,10 @@
 
 Follow these steps to install and run PassGuardian on your system:
 
-```bash
+---
+Completed in: 10-5-2025
+
+```
 # Clone the repository
 git clone https://github.com/Hind0-0/PassGuardian.git
 
@@ -27,3 +30,6 @@ cd PassGuardian/
 # Install the required dependencies
 pip3 install -r requirements.txt
 python3 app.py
+
+
+
